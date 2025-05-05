@@ -26,8 +26,8 @@
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = WebrtcProcessor/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = WebrtcProcessor/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE8C3CBA2DC8A64D004B19B3 /* WebrtcProcessor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WebrtcProcessor-Bridging-Header.h"; sourceTree = "<group>"; };
-		CE8C3CBB2DC8A64D004B19B3 /* FlipFrameProcessor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FlipFrameProcessor.m; path = ../WebrtcProcessor/FlipFrameProcessor.m; sourceTree = "<group>"; };
-		CE8C3CBE2DC8A6B2004B19B3 /* FlipFrameProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FlipFrameProcessor.h; path = ../WebrtcProcessor/FlipFrameProcessor.h; sourceTree = "<group>"; };
+		CE8C3CBB2DC8A64D004B19B3 /* FlipFrameProcessor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipFrameProcessor.m; sourceTree = "<group>"; };
+		CE8C3CBE2DC8A6B2004B19B3 /* FlipFrameProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlipFrameProcessor.h; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 

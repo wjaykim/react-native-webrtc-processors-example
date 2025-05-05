@@ -30,6 +30,6 @@ Example: [AppDelegate.swift](ios/WebrtcProcessor/AppDelegate.swift)
 
 ## Example Processor Implementations
 
-| Processor          | Description                                                                   | Android                                                                                  | iOS                                                |
-|--------------------|-------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|----------------------------------------------------|
-| FlipFrameProcessor | Horizontally flips an frame, which can be useful for 'self view' of a webcam. | [source](android/app/src/main/java/com/webrtcprocessor/processors/FlipFrameProcessor.kt) | [source](ios/WebrtcProcessor/FlipFrameProcessor.m) |
+| Processor          | Description                                                                   | Android                                                                                  | iOS                                           |
+|--------------------|-------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|-----------------------------------------------|
+| FlipFrameProcessor | Horizontally flips an frame, which can be useful for 'self view' of a webcam. | [source](android/app/src/main/java/com/webrtcprocessor/processors/FlipFrameProcessor.kt) | [source](ios/Processors/FlipFrameProcessor.m) |

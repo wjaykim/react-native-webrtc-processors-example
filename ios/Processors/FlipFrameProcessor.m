@@ -3,20 +3,13 @@
 #import <Accelerate/Accelerate.h>
 #import <WebRTC/WebRTC.h>
 
-@interface FlipFrameProcessor()
-
-@property (nonatomic, assign) CVPixelBufferPoolRef pixelBufferPool;
-@property (nonatomic, assign) size_t poolWidth;
-@property (nonatomic, assign) size_t poolHeight;
-@end
-
 @implementation FlipFrameProcessor
 
 - (RTCVideoFrame *)capturer:(RTCVideoCapturer *)capturer
        didCaptureVideoFrame:(RTCVideoFrame *)frame
 {
   RTCI420Buffer *flippedBuffer = [self flipFrameBufferHorizontally:frame.buffer rotation:frame.rotation];
-  
+
   return [[RTCVideoFrame alloc] initWithBuffer:flippedBuffer rotation:frame.rotation timeStampNs:frame.timeStampNs];
 }
 
@@ -27,10 +20,10 @@
   } else {
     src = [frame toI420];
   }
-  
+
   RTCI420Buffer *dst = [[RTCI420Buffer alloc] initWithWidth:src.width
                                                      height:src.height];
-  
+
   vImage_Buffer inY = {
     .data      = (void*)src.dataY,
     .height    = src.height,
@@ -43,7 +36,7 @@
     .width     = dst.width,
     .rowBytes  = dst.strideY
   };
-  
+
   vImage_Buffer inU = {
     .data      = (void*)src.dataU,
     .height    = src.chromaHeight,
@@ -56,7 +49,7 @@
     .width     = dst.chromaWidth,
     .rowBytes  = dst.strideU
   };
-  
+
   vImage_Buffer inV = {
     .data      = (void*)src.dataV,
     .height    = src.chromaHeight,
@@ -69,7 +62,7 @@
     .width     = dst.chromaWidth,
     .rowBytes  = dst.strideV
   };
-  
+
   vImage_Error err;
   if (rotation == RTCVideoRotation_0 || rotation == RTCVideoRotation_180) {
     err = vImageHorizontalReflect_Planar8(&inY, &outY, kvImageNoFlags);
@@ -84,7 +77,7 @@
     NSLog(@"vImage flip error: %ld", err);
     return src;
   }
-  
+
   return dst;
 }
 
