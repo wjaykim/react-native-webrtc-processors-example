@@ -1,0 +1,7 @@
+overrides:
+  "react": "19.0.0"
+  "@livekit/react-native-webrtc": "github:wjaykim/react-native-webrtc#livekit-video-effects"
+publicHoistPattern:
+  - "eslint-*"
+  - "@typescript-eslint/*"
+  - "*react-native*"
