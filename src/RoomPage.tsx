@@ -12,7 +12,6 @@ import {
   AndroidAudioTypePresets,
   useIOSAudioManagement,
 } from '@livekit/react-native';
-import { mediaDevices } from '@livekit/react-native-webrtc';
 import { LocalVideoTrack, Track } from 'livekit-client';
 
 import type { RootStackParamList } from './App';
@@ -58,7 +57,6 @@ export const RoomPage = ({
 };
 
 const RoomView = () => {
-  const [isCameraFrontFacing, setCameraFrontFacing] = useState(true);
   const [videoEffects, setVideoEffects] = useState<Set<VideoEffect>>(
     () => new Set(),
   );
@@ -133,39 +131,6 @@ const RoomView = () => {
           cameraEnabled={isCameraEnabled}
           setCameraEnabled={(enabled: boolean) => {
             localParticipant.setCameraEnabled(enabled);
-          }}
-          switchCamera={async () => {
-            if (!cameraTrack) {
-              return;
-            }
-
-            const facingModeStr = !isCameraFrontFacing ? 'user' : 'environment';
-            setCameraFrontFacing(!isCameraFrontFacing);
-
-            let devices = await mediaDevices.enumerateDevices();
-            let newDevice;
-            //@ts-ignore
-            for (const device of devices) {
-              if (
-                device.kind === 'videoinput' &&
-                device.facing === facingModeStr
-              ) {
-                newDevice = device;
-                break;
-              }
-            }
-
-            if (!newDevice) {
-              return;
-            }
-
-            const localCameraTrack = cameraTrack.videoTrack;
-            if (localCameraTrack instanceof LocalVideoTrack) {
-              localCameraTrack.restartTrack({
-                deviceId: newDevice.deviceId,
-                facingMode: facingModeStr,
-              });
-            }
           }}
         />
       </View>

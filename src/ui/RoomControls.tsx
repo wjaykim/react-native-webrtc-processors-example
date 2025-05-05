@@ -17,7 +17,6 @@ export type Props = {
   setMicEnabled: (enabled: boolean) => void;
   cameraEnabled?: boolean;
   setCameraEnabled: (enabled: boolean) => void;
-  switchCamera: () => void;
   style?: StyleProp<ViewStyle>;
 };
 export const RoomControls = ({
@@ -25,7 +24,6 @@ export const RoomControls = ({
   setMicEnabled,
   cameraEnabled = false,
   setCameraEnabled,
-  switchCamera,
   style,
 }: Props) => {
   const [videoEffectsModalVisible, setVideoEffectsModalVisible] =
@@ -68,15 +66,6 @@ export const RoomControls = ({
           setCameraEnabled(!cameraEnabled);
         }}>
         <Image style={styles.icon} source={cameraImage} />
-      </Pressable>
-      <Pressable
-        onPress={() => {
-          switchCamera();
-        }}>
-        <Image
-          style={styles.icon}
-          source={require('../icons/camera_flip_outline.png')}
-        />
       </Pressable>
       <Pressable
         onPress={() => {
